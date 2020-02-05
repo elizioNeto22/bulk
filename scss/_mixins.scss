@@ -1,0 +1,47 @@
+$roxo: #bc2bff;
+$azul: #562fc7;
+$azulClaro: #7249fb;
+
+@mixin container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+@mixin botao {
+
+  background: linear-gradient(to right, #bc2bff 0%, #7249fb 51%, #bc2bff 100%);
+  padding: 15px 45px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: $branco;
+  font-weight: bold;
+  box-shadow: 0px 10px 30px 0px #00000041;
+
+  &:hover {
+    background: linear-gradient(to left, #bc2bff 0%, #7249fb 100%, #bc2bff 51%);
+
+  }
+}
+
+
+
+@mixin device($tamanho) {
+  @if $tamanho==desktop {
+    @media only screen and (min-width: 1100px) {
+      @content;
+    }
+  }
+
+  @if $tamanho==tablet {
+    @media only screen and (min-width: 768px) and (max-width: 1099px) {
+      @content;
+    }
+  }
+
+  @else if $tamanho==mobile {
+    @media only screen and (max-width: 767px) {
+      @content;
+    }
+  }
+}
